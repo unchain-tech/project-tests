@@ -6,7 +6,7 @@ clone_repo()
 {
     SCHEME=https://
     URL=$1
-    DOMAIN=${URL##https://}
+    DOMAIN=${URL##$SCHEME}
     USER=x-access-token
     PAT=$2
     git clone $SCHEME$USER:$PAT@$DOMAIN
@@ -20,18 +20,32 @@ get_repo_name()
     echo $REPO_NAME
 }
 
-export PATH_TO_SUBMISSION_REPO=$PWD/$(get_repo_name $SUBMISSION_REPO_HTTPS_URL)
-clone_repo $SUBMISSION_REPO_HTTPS_URL $SUBMITTER_PAT
+run_test()
+{
+    TEST_SOURCE_REPO_URL=$1
+    SCRIPT=$2
 
-case "$TEST_TYPE" in
+    # Prepare submission repository
+    export PATH_TO_SUBMISSION_REPO=$PWD/$(get_repo_name $SUBMISSION_REPO_URL)
+    clone_repo $SUBMISSION_REPO_URL $SUBMITTER_PAT
+
+    # Prepare test code repository
+    export PATH_TO_TEST_SOURCE=$PWD/$(get_repo_name $TEST_SOURCE_REPO_URL)
+    clone_repo $TEST_SOURCE_REPO_URL $SHIFTBASE_PAT
+
+    # Run
+    chmod 755 $SCRIPT
+    bash $SCRIPT
+}
+
+case "$TEST_CASE" in
     "STARPASS_SNS" )
-        TEST_CODE_REPO_HTTPS_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
-        export PATH_TO_TEST_CODE_REPO=$PWD/$(get_repo_name $TEST_CODE_REPO_HTTPS_URL)
-        clone_repo $TEST_CODE_REPO_HTTPS_URL $SHIFTBASE_PAT
-        bash starpass_sns.sh
+        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
+        SCRIPT=starpass_sns.sh
         ;;
-    * ) echo no match ;;
+    * ) echo "No match test case" ;;
 esac
+    run_test $TEST_SOURCE_REPO_URL $SCRIPT
 
 # Exit with last status.
 exit $?
