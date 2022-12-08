@@ -2,25 +2,32 @@
 
 set -eux
 
-#TODO: exportがいるのか
-#TODO: 関数化かシェルスクリプト化する
+clone_repo()
+{
+    SCHEME=https://
+    URL=$1
+    DOMAIN=${URL##https://}
+    USER=x-access-token
+    PAT=$2
+    git clone $SCHEME$USER:$PAT@$DOMAIN
+}
 
-export USER=x-access-token
-export URL_WITHOUT_SCHEME=${SUBMISSION_REPO_HTTPS_URL##https://}
-export basename=$(basename $SUBMISSION_REPO_HTTPS_URL)
-export SUBMISSION_REPO=${basename%.*}
-export PATH_TO_SUBMISSION_REPO=$PWD/$SUBMISSION_REPO
-git clone https://$USER:$SUBMITTER_PAT@$URL_WITHOUT_SCHEME
+get_repo_name()
+{
+    URL=$1
+    BASENAME=$(basename $URL)
+    REPO_NAME=${BASENAME%.*}
+    echo $REPO_NAME
+}
+
+export PATH_TO_SUBMISSION_REPO=$PWD/$(get_repo_name $SUBMISSION_REPO_HTTPS_URL)
+clone_repo $SUBMISSION_REPO_HTTPS_URL $SUBMITTER_PAT
 
 case "$TEST_TYPE" in
     "STARPASS_SNS" )
-        export USER=x-access-token
-        export TEST_CODE_REPO_HTTPS_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
-        export URL_WITHOUT_SCHEME=${TEST_CODE_REPO_HTTPS_URL##https://}
-        export basename=$(basename $TEST_CODE_REPO_HTTPS_URL)
-        export TEST_CODE_REPO=${basename%.*}
-        export PATH_TO_TEST_CODE_REPO=$PWD/$TEST_CODE_REPO
-        git clone https://$USER:$SHIFTBASE_PAT@$URL_WITHOUT_SCHEME
+        TEST_CODE_REPO_HTTPS_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
+        export PATH_TO_TEST_CODE_REPO=$PWD/$(get_repo_name $TEST_CODE_REPO_HTTPS_URL)
+        clone_repo $TEST_CODE_REPO_HTTPS_URL $SHIFTBASE_PAT
         bash starpass_sns.sh
         ;;
     * ) echo no match ;;
