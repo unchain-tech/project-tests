@@ -6,10 +6,7 @@ rm -rf $PATH_TO_SUBMISSION_REPO/test
 # Copy original test code
 cp -r $PATH_TO_TEST_SOURCE/test $PATH_TO_SUBMISSION_REPO/test
 
-# Run test. Test sns temporarily.
+# Run test.
 cd $PATH_TO_SUBMISSION_REPO
 yarn
-yarn test:sns
-
-# Exit with last status.
-exit $?
+yarn test:gov
