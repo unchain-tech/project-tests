@@ -50,8 +50,16 @@ case "$TEST_CASE" in
         TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
         SCRIPT=starpass_sns.sh
         ;;
+    "STARPASS_GOV" )
+        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
+        SCRIPT=starpass_gov.sh
+        ;;
+    "STARPASS_MED" )
+        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
+        SCRIPT=starpass_med.sh
+        ;;
     * ) echo "No match test case" ;;
 esac
 
 # Run test.
-run_test $TEST_SOURCE_REPO_URL $SCRIPT
+run_test $TEST_SOURCE_REPO_URL scripts/$SCRIPT
