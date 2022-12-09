@@ -1,6 +1,12 @@
 #!/bin/bash
 
+# e: Exit if a command fails.
+# u: Treats unset or undefined variables as an error.
+# x: Prints out command arguments during execution.
 set -eux
+
+# SHELLOPTS: Apply options for child process.
+export SHELLOPTS
 
 clone_repo()
 {
@@ -12,11 +18,11 @@ clone_repo()
     git clone $SCHEME$USER:$PAT@$DOMAIN
 }
 
-get_repo_name()
+extract_github_repo_name()
 {
-    URL=$1
-    BASENAME=$(basename $URL)
-    REPO_NAME=${BASENAME%.*}
+    GITHUB_URL=$1
+    BASENAME=$(basename $GITHUB_URL) # extract reponame.git
+    REPO_NAME=${BASENAME%.*} # remove .git
     echo $REPO_NAME
 }
 
@@ -26,18 +32,19 @@ run_test()
     SCRIPT=$2
 
     # Prepare submission repository
-    export PATH_TO_SUBMISSION_REPO=$PWD/$(get_repo_name $SUBMISSION_REPO_URL)
     clone_repo $SUBMISSION_REPO_URL $SUBMITTER_PAT
+    export PATH_TO_SUBMISSION_REPO=$PWD/$(extract_github_repo_name $SUBMISSION_REPO_URL)
 
     # Prepare test code repository
-    export PATH_TO_TEST_SOURCE=$PWD/$(get_repo_name $TEST_SOURCE_REPO_URL)
     clone_repo $TEST_SOURCE_REPO_URL $SHIFTBASE_PAT
+    export PATH_TO_TEST_SOURCE=$PWD/$(extract_github_repo_name $TEST_SOURCE_REPO_URL)
 
     # Run
     chmod 755 $SCRIPT
     bash $SCRIPT
 }
 
+# List test resources corresponding to TEST_CASE.
 case "$TEST_CASE" in
     "STARPASS_SNS" )
         TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
@@ -45,7 +52,6 @@ case "$TEST_CASE" in
         ;;
     * ) echo "No match test case" ;;
 esac
-    run_test $TEST_SOURCE_REPO_URL $SCRIPT
 
-# Exit with last status.
-exit $?
+# Run test.
+run_test $TEST_SOURCE_REPO_URL $SCRIPT
