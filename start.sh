@@ -5,7 +5,7 @@
 # x: Prints out command arguments during execution.
 set -eux
 
-# SHELLOPTS: Apply options for child process.
+# SHELLOPTS: Apply above options for child processes.
 export SHELLOPTS
 
 clone_repo()
@@ -57,6 +57,10 @@ case "$TEST_CASE" in
     "STARPASS_MED" )
         TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
         SCRIPT=starpass_med.sh
+        ;;
+    "AVAX_ASSET_TOKENIZATION" )
+        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
+        SCRIPT=avax_asset_tokenization.sh
         ;;
     * ) echo "No match test case" ;;
 esac
