@@ -59,7 +59,7 @@ case "$TEST_CASE" in
         SCRIPT=starpass_med.sh
         ;;
     "AVAX_ASSET_TOKENIZATION" )
-        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
         SCRIPT=avax_asset_tokenization.sh
         ;;
     * ) echo "No match test case" ;;
