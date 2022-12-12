@@ -35,7 +35,7 @@ run_test()
 
     # Prepare test code repository
     clone_repo $TEST_SOURCE_REPO_URL $SHIFTBASE_PAT $TEST_SOURCE_REPO_NAME
-    export PATH_TO_TEST_SOURCE=$PWD/$TEST_SOURCE_REPO_NAME
+    export PATH_TO_TEST_SOURCE_REPO=$PWD/$TEST_SOURCE_REPO_NAME
 
     # Run
     chmod 755 $SCRIPT
