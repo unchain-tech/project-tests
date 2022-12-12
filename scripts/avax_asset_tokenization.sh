@@ -4,7 +4,7 @@
 rm -rf $PATH_TO_SUBMISSION_REPO/contract/test
 
 # Copy original test code
-cp -r $PATH_TO_TEST_SOURCE/contract/test $PATH_TO_SUBMISSION_REPO/contract/test
+cp -r $PATH_TO_TEST_SOURCE_REPO/contract/test $PATH_TO_SUBMISSION_REPO/contract/test
 
 # Run test.
 cd $PATH_TO_SUBMISSION_REPO/contract
