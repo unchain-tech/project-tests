@@ -9,4 +9,5 @@ cp -r $PATH_TO_TEST_SOURCE_REPO/contract/test $PATH_TO_SUBMISSION_REPO/contract/
 # Run test.
 cd $PATH_TO_SUBMISSION_REPO/contract
 npm install
-npx hardhat test
+npx hardhat test test/FarmNft.ts
+npx hardhat test test/AssetTokenization.ts
