@@ -3,10 +3,8 @@
 # e: Exit if a command fails.
 # u: Treats unset or undefined variables as an error.
 # x: Prints out command arguments during execution.
-set -eux
-
-# SHELLOPTS: Apply above options for child processes.
-export SHELLOPTS
+OPTIONS=eux
+set -$OPTIONS
 
 # Name for the repository to be cloned.
 # To avoid name conflicts because the following two repositories may be the same during test simulation.
@@ -39,7 +37,7 @@ run_test()
 
     # Run
     chmod 755 $SCRIPT
-    bash $SCRIPT
+    bash -$OPTIONS $SCRIPT
 }
 
 # List test resources corresponding to TEST_CASE.
@@ -59,6 +57,10 @@ case "$TEST_CASE" in
     "AVAX_ASSET_TOKENIZATION" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
         SCRIPT=avax_asset_tokenization.sh
+        ;;
+    "NEAR_BIKE_SHARING" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/NEAR-Bike-Sharing.git
+        SCRIPT=near_bike_sharing.sh
         ;;
     * ) echo "No match test case" ;;
 esac
