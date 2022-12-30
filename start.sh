@@ -60,6 +60,10 @@ case "$TEST_CASE" in
         TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
         SCRIPT=avax_asset_tokenization.sh
         ;;
+    "NEAR_BIKE_SHARING" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/NEAR-Bike-Sharing.git
+        SCRIPT=near_bike_sharing.sh
+        ;;
     * ) echo "No match test case" ;;
 esac
 
