@@ -62,6 +62,10 @@ case "$TEST_CASE" in
         TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/NEAR-Bike-Sharing.git
         SCRIPT=near_bike_sharing.sh
         ;;
+    "NEAR_HOTEL_BOOKING" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/near-hotel-booking-dapp.git
+        SCRIPT=near_hotel_booking.sh
+        ;;
     * ) echo "No match test case" ;;
 esac
 
