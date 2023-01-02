@@ -58,6 +58,10 @@ case "$TEST_CASE" in
         TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
         SCRIPT=avax_asset_tokenization.sh
         ;;
+    "ICP_BASIC_DEX" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/icp_basic_dex.git
+        SCRIPT=icp_basic_dex.sh
+        ;;
     "NEAR_BIKE_SHARING" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/NEAR-Bike-Sharing.git
         SCRIPT=near_bike_sharing.sh
