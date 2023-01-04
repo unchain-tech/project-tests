@@ -40,37 +40,39 @@ run_test()
     bash -$OPTIONS $SCRIPT
 }
 
-# List test resources corresponding to TEST_CASE.
-case "$TEST_CASE" in
-    "STARPASS_SNS" )
-        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
-        SCRIPT=starpass_sns.sh
-        ;;
-    "STARPASS_GOV" )
-        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
-        SCRIPT=starpass_gov.sh
-        ;;
-    "STARPASS_MED" )
-        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
-        SCRIPT=starpass_med.sh
-        ;;
-    "AVAX_ASSET_TOKENIZATION" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
-        SCRIPT=avax_asset_tokenization.sh
-        ;;
-    "ICP_BASIC_DEX" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/icp_basic_dex.git
-        SCRIPT=icp_basic_dex.sh
-        ;;
-    "NEAR_BIKE_SHARING" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/NEAR-Bike-Sharing.git
-        SCRIPT=near_bike_sharing.sh
-        ;;
-    "NEAR_HOTEL_BOOKING" )
+# List test resources corresponding to PROJECT_ID.
+case "$PROJECT_ID" in
+    "402" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/near-hotel-booking-dapp.git
         SCRIPT=near_hotel_booking.sh
         ;;
-    * ) echo "No match test case" ;;
+    "403" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/NEAR-Bike-Sharing.git
+        SCRIPT=near_bike_sharing.sh
+        ;;
+    "503" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
+        SCRIPT=avax_asset_tokenization.sh
+        ;;
+    "555" )
+        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
+        SCRIPT=starpass_sns.sh
+        ;;
+    "556" )
+        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
+        SCRIPT=starpass_gov.sh
+        ;;
+    "557" )
+        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
+        SCRIPT=starpass_med.sh
+        ;;
+    "602" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/icp_basic_dex.git
+        SCRIPT=icp_basic_dex.sh
+        ;;
+    * ) echo "No match test case"
+        exit 1
+        ;;
 esac
 
 # Run test.
