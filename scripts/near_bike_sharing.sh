@@ -7,7 +7,9 @@
 # Copy original test code
 # cp -r $PATH_TO_TEST_SOURCE_REPO/contract/test $PATH_TO_SUBMISSION_REPO/contract/test
 
+# Install dependencies.
+bash utils/installRust.sh
+
 # Run test.
 cd $PATH_TO_SUBMISSION_REPO/contract
-bash ../utils/installRust.sh
 cargo test
