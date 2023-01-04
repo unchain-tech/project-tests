@@ -14,7 +14,7 @@ bash start.sh
 SUBMISSION_REPO_URL
 SUBMITTER_PAT
 SHIFTBASE_PAT
-TEST_CASE
+PROJECT_ID
 ```
 
 ### 📓 全体像
@@ -82,8 +82,8 @@ export SHIFTBASE_PAT=github_pat_11A4BZMHY0rrq29JVbiCsU_EArJkHwRr1vJg7L9w61s34b8W
 # TEST_SOURCE_REPO_URLをクローンするためのトークンです。
 # 学習コンテンツの場合, TEST_SOURCE_REPO_URLはpublicなはずなので, こちらは編集しなくて大丈夫です。このままexportしてください。
 
-export TEST_CASE=AVAX_ASSET_TOKENIZATION
-# 先ほど追加したテストケースの名前を記述してください。
+export PROJECT_ID=503
+# テストするコンテンツのIDを記述してください。
 ```
 
 このリポジトリ内にて, 以下のコマンドで`start.sh`を実行してください。  
