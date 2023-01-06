@@ -9,7 +9,7 @@
 
 # Install dependencies.
 # The import path is from start.sh
-source utils/installRust.sh
+source utils/install_rust.sh
 install_rust
 
 # Run test.
