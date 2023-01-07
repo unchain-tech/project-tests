@@ -1,16 +1,23 @@
 #!/bin/bash
 
-# TODO: 現状テストコードが同じファイル内にあるためテストコードのコピーができてない, 別ファイルにできるかsaitoさんに聞く
-# Clean existing test code.
-# rm -rf $PATH_TO_SUBMISSION_REPO/contract/test
-
-# Copy original test code
-# cp -r $PATH_TO_TEST_SOURCE_REPO/contract/test $PATH_TO_SUBMISSION_REPO/contract/test
-
 # Install dependencies.
 # The import path is from start.sh
 source utils/install_rust.sh
 install_rust
+
+# File name.
+SUBMISSION_LIB=$PATH_TO_SUBMISSION_REPO/contract/src/lib.rs
+TEST_LIB=$PATH_TO_TEST_SOURCE_REPO/contract/src/lib.rs
+
+# Clean existing test code in lib.rs.
+# Remove lines after "cfg(test)".
+sed -i "" '/cfg(test)/,$d' $SUBMISSION_LIB
+
+# Extract test code.
+sed -n -i "" '/cfg(test)/,$p' $TEST_LIB
+
+# Append test code to submission file.
+cat $TEST_LIB >> $SUBMISSION_LIB
 
 # Run test.
 cd $PATH_TO_SUBMISSION_REPO/contract
