@@ -28,62 +28,87 @@ https://app.diagrams.net/#G16k64Y8UUGiJgKQyOhEQ5q4LxUckUa79r
 
 1. `start.sh`内にテストケースの用意
 2. `scripts`ディレクトリ内にテストスクリプトを用意
-3. ローカル環境で実行確認
+3. dockerまたはローカル環境で実行確認
 4. プルリク
 
-例:
-学習コンテンツ`AVAX-AssetTokenization`の場合。
+例: 学習コンテンツ`AVAX-AssetTokenization`の場合。
 
-🐦 `start.sh`内に以下を追加。
+**1** `start.sh`内にテストケースの用意
 
-- テストケース名。(任意の名前。ここでは`AVAX_ASSET_TOKENIZATION`。)
-- オリジナルのテストコードが入ったURL。以下TEST_SOURCE_REPO_URLと呼びます。(学習コンテンツの場合は完成形のリポジトリを想定。ここでは[こちらのリンク先](https://github.com/unchain-dev/AVAX-Asset-Tokenization.git)。)
-- 実行するスクリプトのファイル名。(任意の名前。ファイル自体は次のステップで作成します。ここでは`avax_asset_tokenization.sh`。)
+`start.sh`内に以下のコードと同様のテストケースが羅列されている箇所があります。  
+そこに新しいテストケースを追加します。
 
 ```
-    "AVAX_ASSET_TOKENIZATION" )
+    "503" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
         SCRIPT=avax_asset_tokenization.sh
         ;;
 ```
 
-🐦 `scripts`ディレクトリ内に先ほど決めた名前でファイルを作成します(ここでは`avax_asset_tokenization.sh`)。
+- `503`: project id
+- `TEST_SOURCE_REPO_URL`: オリジナルのテストコードが入ったURL。以下TEST_SOURCE_REPO_URLと呼びます。(学習コンテンツの場合は完成形のリポジトリを想定）。
+- `SCRIPT`: 実行するスクリプトのファイル名。(ファイル自体は次のステップで作成します）。
 
-`avax_asset_tokenization.sh`内に何を実行するのかを記述します。
+**2** `scripts`ディレクトリ内にテストスクリプトを用意
 
-このスクリプト実行時には既に2つのリポジトリがクローンされていて, 以下の環境変数によってそれぞれアクセスできるので利用してください。
+`scripts`ディレクトリ内に先ほど決めた名前でファイルを作成します。
+
+スクリプト内に何を実行するのかを記述します。
+
+このスクリプト実行時には既に2つのリポジトリがクローンされていて,  
+スクリプト内では以下の環境変数によってそれぞれのリポジトリにアクセスできるので利用してください。
 
 - `PATH_TO_SUBMISSION_REPO`: 提出されたレポジトリへのパス
 - `PATH_TO_TEST_SOURCE_REPO`: オリジナルのテストコードが入ったリポジトリへのパス
 
-`avax_asset_tokenization.sh`内では以下の内容を行っています。
+⚠️ テスト実行に必要な依存ファイルのインストールに注意してください。  
+[こちら](https://github.com/aws/aws-codebuild-docker-images/blob/master/ubuntu/standard/6.0/Dockerfile)にインストールが記載されているコマンドは実行環境に既にインストールされ, 使用できる（と思われます）。  
+例えば`npm`で検索するとインストールしている箇所があるので, `npm`は使用できます。  
+`rust`はないので, `rust`はスクリプト内でインストールする必要があります。  
 
-1. `PATH_TO_SUBMISSION_REPO`内のテストコードを削除
-2. `PATH_TO_TEST_SOURCE_REPO`内のオリジナルのテストコードを`PATH_TO_SUBMISSION_REPO`内へコピー
-3. `PATH_TO_TEST_SOURCE_REPO`内でテストコマンドの実行
+> codebuildの実行環境は以下の手順で割り出しました。  
+> - 過去のビルド記録に`aws/codebuild/standard:6.0`というdocker imageの使用記載があった。    
+> - [こちら](https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/build-env-ref-available.html)から該当するdocker imageのソースコードリンクを取得。
 
-⚠️ `yarn install`など, テスト実行に必要なものがある場合はテスト実行前にインストール作業を記述してください。  
-`npm`, `yarn`はビルトインで使えることを確認しました。  
-その他macのターミナルで使用できるコマンドは大体使用できると思います。
+**3** dockerまたはローカル環境で実行確認
 
-🐦 ローカル環境で実行確認をしてください。
+**docker**
+
+codebuildで使用されているdocker imageをローカルでビルドするのは1時間以上かかったので断念しました。  
+
+もし実行される場合は[こちら](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/6.0)のREADMEを参照して下さい。  
+
+※ m1 macの場合, `docker build --platform linux/amd64 -t aws/codebuild/standard:6.0 .`でビルドを実行する必要があります。
+
+**ローカル**
+
+LinuxまたはmacOSなど, bashスクリプトが実行できれば, ローカルでもある程度動作確認ができると思います。
+
+スクリプトを実行する前に以下の環境変数をセットする必要があります。
+
+```
+SUBMISSION_REPO_URL
+SUBMITTER_PAT
+SHIFTBASE_PAT
+PROJECT_ID
+```
 
 環境変数をセットします。
 ```bash
-export SUBMISSION_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
 # 本番では提出されたリポジトリのURLを指します。
 # ここではテストが動くかの確認なので, TEST_SOURCE_REPO_URLと同じもので大丈夫です。
+export SUBMISSION_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
 
-export SUBMITTER_PAT=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
-# 提出者のリポジトリをクローンするためのトークンです。
+# 提出者のリポジトリをクローンするためのアクセストークンを指します。
 # 学習コンテンツの場合, SUBMISSION_REPO_URLはpublicなはずなので, こちらは編集しなくて大丈夫です。このままexportしてください。
+export SUBMITTER_PAT=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
 
-export SHIFTBASE_PAT=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
-# TEST_SOURCE_REPO_URLをクローンするためのトークンです。
+# TEST_SOURCE_REPO_URLをクローンするためのアクセストークンを指します。
 # 学習コンテンツの場合, TEST_SOURCE_REPO_URLはpublicなはずなので, こちらは編集しなくて大丈夫です。このままexportしてください。
+export SHIFTBASE_PAT=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
 
+# テスト対象のプロジェクトIDを指します。
 export PROJECT_ID=503
-# テストするコンテンツのIDを記述してください。
 ```
 
 このリポジトリ内にて, 以下のコマンドで`start.sh`を実行してください。  
@@ -93,4 +118,6 @@ export PROJECT_ID=503
 bash start.sh
 ```
 
-🐦 テスト実行が無事確認できたらプルリクしてください。
+**4** プルリク
+
+テスト実行が無事確認できたらプルリクしてください。
