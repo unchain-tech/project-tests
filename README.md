@@ -17,6 +17,15 @@ SHIFTBASE_PAT
 PROJECT_ID
 ```
 
+例:
+
+```bash
+SUBMISSION_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
+SUBMITTER_PAT=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
+SHIFTBASE_PAT=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
+PROJECT_ID=503
+```
+
 ### 📓 全体像
 
 テストは, codebuildというawsのマシン上にあるLinux環境で行います。  
@@ -24,7 +33,7 @@ PROJECT_ID
 
 https://app.diagrams.net/#G16k64Y8UUGiJgKQyOhEQ5q4LxUckUa79r
 
-### 📓 テスト追加の方法
+### 📓 テスト追加方法
 
 1. `start.sh`内にテストケースの用意
 2. `scripts`ディレクトリ内にテストスクリプトを用意
@@ -86,14 +95,6 @@ LinuxまたはmacOSなど, bashスクリプトが実行できれば, ローカ�
 
 スクリプトを実行する前に以下の環境変数をセットする必要があります。
 
-```
-SUBMISSION_REPO_URL
-SUBMITTER_PAT
-SHIFTBASE_PAT
-PROJECT_ID
-```
-
-環境変数をセットします。
 ```bash
 # 本番では提出されたリポジトリのURLを指します。
 # ここではテストが動くかの確認なので, TEST_SOURCE_REPO_URLと同じもので大丈夫です。
