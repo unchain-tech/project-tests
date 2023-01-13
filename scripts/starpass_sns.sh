@@ -9,4 +9,4 @@ cp -r $PATH_TO_TEST_SOURCE_REPO/test $PATH_TO_SUBMISSION_REPO/test
 # Run test.
 cd $PATH_TO_SUBMISSION_REPO
 yarn
-yarn test:sns
+yarn test:soc
