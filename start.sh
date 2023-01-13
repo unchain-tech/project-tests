@@ -57,7 +57,7 @@ case "$PROJECT_ID" in
         ;;
     "555" )
         TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-test-code
-        SCRIPT=starpass_sns.sh
+        SCRIPT=starpass_soc.sh
         ;;
     "556" )
         TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-test-code
