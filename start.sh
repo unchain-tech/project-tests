@@ -31,6 +31,8 @@ run_test()
     bash -$OPTIONS $SCRIPT
 }
 
+#****************     SETTINGS     *******************************************************
+
 # List test resources corresponding to PROJECT_ID.
 # PROJECT_ID of star-pass (555~557) is randomly selected from not in use.
 case "$PROJECT_ID" in
@@ -79,6 +81,10 @@ if [ -z $TEST_SOURCE_ACCESS_TOKEN ]; then
     TEST_SOURCE_ACCESS_TOKEN=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
 fi
 
+#****************     END SETTINGS     ****************************************************
+
+#****************     TEST     *******************************************************
+
 # To avoid name conflicts because the following two repositories may be the same during test simulation.
 SUBMISSION_REPO_NAME=submission
 TEST_SOURCE_REPO_NAME=test_source
@@ -88,3 +94,5 @@ clone_repo $SUBMISSION_REPO_URL $SUBMITTER_PAT $SUBMISSION_REPO_NAME
 clone_repo $TEST_SOURCE_REPO_URL $TEST_SOURCE_ACCESS_TOKEN $TEST_SOURCE_REPO_NAME
 
 run_test scripts/$SCRIPT $SUBMISSION_REPO_NAME $TEST_SOURCE_REPO_NAME
+
+#****************     END TEST     *******************************************************
