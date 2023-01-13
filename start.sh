@@ -41,6 +41,7 @@ run_test()
 }
 
 # List test resources corresponding to PROJECT_ID.
+# PROJECT_ID of star-pass (555~557) is randomly selected from not in use.
 case "$PROJECT_ID" in
     "402" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/near-hotel-booking-dapp.git
@@ -55,15 +56,15 @@ case "$PROJECT_ID" in
         SCRIPT=avax_asset_tokenization.sh
         ;;
     "555" )
-        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
+        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-test-code
         SCRIPT=starpass_sns.sh
         ;;
     "556" )
-        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
+        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-test-code
         SCRIPT=starpass_gov.sh
         ;;
     "557" )
-        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
+        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-test-code
         SCRIPT=starpass_med.sh
         ;;
     "602" )
