@@ -50,17 +50,17 @@ case "$PROJECT_ID" in
         SCRIPT=avax_asset_tokenization.sh
         ;;
     "555" )
-        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
+        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-test-code.git
         TEST_SOURCE_ACCESS_TOKEN=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
         SCRIPT=starpass_soc.sh
         ;;
     "556" )
-        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
+        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-test-code.git
         TEST_SOURCE_ACCESS_TOKEN=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
         SCRIPT=starpass_gov.sh
         ;;
     "557" )
-        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-starter-project.git
+        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-test-code.git
         TEST_SOURCE_ACCESS_TOKEN=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
         SCRIPT=starpass_med.sh
         ;;
