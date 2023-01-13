@@ -104,7 +104,7 @@ Linux または macOS など, bash スクリプトが実行できれば, ロー�
 
 ```bash
 # 本番では, 提出されたリポジトリのURLを指します。
-# ここではテストが動くかの確認なので, TEST_SOURCE_REPO_URLと同じもので大丈夫です。
+# ここではTEST_SOURCE_REPO_URLと同じものを設定して, テストの挙動を確かめます。
 export SUBMISSION_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
 
 # 本番では, 提出者のリポジトリをクローンする際に使用するアクセストークンを指します。
