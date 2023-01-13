@@ -79,8 +79,6 @@ if [ -z $TEST_SOURCE_ACCESS_TOKEN ]; then
     TEST_SOURCE_ACCESS_TOKEN=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
 fi
 
-# 
-
 # To avoid name conflicts because the following two repositories may be the same during test simulation.
 SUBMISSION_REPO_NAME=submission
 TEST_SOURCE_REPO_NAME=test_source
