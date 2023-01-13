@@ -20,10 +20,25 @@ case "$PROJECT_ID" in
         TEST_SOURCE_ACCESS_TOKEN=
         SCRIPT=near_bike_sharing.sh
         ;;
+    "501" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Messenger.git
+        TEST_SOURCE_ACCESS_TOKEN=
+        SCRIPT=avax_messenger.sh
+        ;;
+    "502" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Amm.git
+        TEST_SOURCE_ACCESS_TOKEN=
+        SCRIPT=avax_amm.sh
+        ;;
     "503" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
         TEST_SOURCE_ACCESS_TOKEN=
         SCRIPT=avax_asset_tokenization.sh
+        ;;
+    "504" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Subnet.git
+        TEST_SOURCE_ACCESS_TOKEN=
+        SCRIPT=avax_subnet.sh
         ;;
     "555" )
         TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-test-code.git
