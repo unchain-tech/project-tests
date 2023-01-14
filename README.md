@@ -11,42 +11,51 @@ bash start.sh
 テストの実行には以下の環境変数が必要です。
 
 ```
-SUBMISSION_REPO_URL
-SUBMITTER_PAT
 PROJECT_ID
-```
-
-例:
-
-```bash
-# STARPASS
-SUBMISSION_REPO_URL=https://github.com/shiftbase-inc/STARPASS-test-code
-SUBMITTER_PAT=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
-PROJECT_ID=555
-
-# AVAX-AssetTokenization
-SUBMISSION_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
-SUBMITTER_PAT=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
-PROJECT_ID=503
+SUBMITTER_PAT
+SUBMISSION_REPO_URL
 ```
 
 # 📓 全体像
 
-テストは, codebuild という aws のマシン上にある Linux 環境で行います。  
+テストは codebuild という aws のマシン上にある Linux 環境で行います。  
 以下のリンクにある図を参考にしてください。
 
 https://app.diagrams.net/#G16k64Y8UUGiJgKQyOhEQ5q4LxUckUa79r
 
+**要点** 💁
+
+codebuild には以下 3 つのリポジトリがクローンされ, テストが行われます。
+
+- このリポジトリ。テストの実行と管理を担当。
+- 提出物のリポジトリ。
+- テストのソースコードが入ったリポジトリ。
+
 # 📓 テスト追加方法
 
-1. `start.sh`内にテストケースの用意
-2. `scripts`ディレクトリ内にテストスクリプトを用意
-3. docker またはローカル環境で実行確認
-4. プルリク
+1. テストのソースコードが入ったリポジトリの用意
+2. `start.sh`内に管理するテストケースの用意
+3. `scripts`ディレクトリ内にテストスクリプトを用意
+4. docker またはローカル環境で実行確認
+5. プルリク
 
 **例: 学習コンテンツ`AVAX-AssetTokenization`の場合** 💁
 
-### 1.`start.sh`内にテストケースの用意 🦎
+### 1.テストのソースコードが入ったリポジトリの用意 🦎
+
+現状こちらのリポジトリに関しては, 以下のような考えです。
+
+- STARPASS のテストの場合:  
+  提出者の実力を検証することが目的のため, 不正を防止するためにテスト内容は private なリポジトリで用意。
+
+- 学習コンテンツのテストの場合:  
+  学習コンテンツの完成形リポジトリを使う(この例だと[こちら](https://github.com/unchain-dev/AVAX-Asset-Tokenization.git))。  
+  厳密なテストというよりは挙動確認が目的のため, コードの流用性を優先して public なリポジトリも許容する。
+
+⚠️ リポジトリを private で用意する場合はクローンにアクセストークンが必要です。  
+現状, private リポジトリは[shiftbase-inc](https://github.com/shiftbase-inc)内に作成し, トークンは`SHIFTBASE_PAT`を使用しています。`SHIFTBASE_PAT`については[こちら](https://www.notion.so/unchain-shiftbase/Codebuild-b8e75ddfc3924deb8f2092014addb133)を参照してください。
+
+### 2.`start.sh`内にテストケースの用意 🦎
 
 `start.sh`内に以下のコードと同様のテストケースが羅列されている箇所があります。  
 そこに新しいテストケースを追加します。
@@ -54,17 +63,15 @@ https://app.diagrams.net/#G16k64Y8UUGiJgKQyOhEQ5q4LxUckUa79r
 ```
     "503" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
-        TEST_SOURCE_ACCESS_TOKEN=
         SCRIPT=avax_asset_tokenization.sh
         ;;
 ```
 
 - `503`: project id
-- `TEST_SOURCE_REPO_URL`: オリジナルのテストコードが入った URL（学習コンテンツの場合は完成形のリポジトリを想定）。
-- `TEST_SOURCE_ACCESS_TOKEN`: `TEST_SOURCE_REPO_URL`のクローン時に使用するトークンです。Public リポジトリの場合は空白です。
+- `TEST_SOURCE_REPO_URL`: オリジナルのテストコードの URL(https)。
 - `SCRIPT`: 実行するスクリプトのファイル名。ファイル自体は次のステップで作成します。
 
-### 2.`scripts`ディレクトリ内にテストスクリプトを用意 🦎
+### 3.`scripts`ディレクトリ内にテストスクリプトを用意 🦎
 
 `scripts`ディレクトリ内に先ほど決めた名前でファイルを作成します。
 
@@ -86,7 +93,7 @@ https://app.diagrams.net/#G16k64Y8UUGiJgKQyOhEQ5q4LxUckUa79r
 > - 過去のビルド記録に`aws/codebuild/standard:6.0`という docker image の使用記載があった。
 > - [こちら](https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/build-env-ref-available.html)から該当する docker image のソースコードリンクを取得。
 
-### 3.docker またはローカル環境で実行確認 🦎
+### 4.docker またはローカル環境で実行確認 🦎
 
 **docker**
 
@@ -103,15 +110,16 @@ Linux または macOS など, bash スクリプトが実行できれば, ロー�
 スクリプトを実行する前に以下の環境変数をセットする必要があります。
 
 ```bash
+# テストをするプロジェクトIDを指します。
+export PROJECT_ID=503
+
 # 本番では, 提出されたリポジトリのURLを指します。
-# ここではTEST_SOURCE_REPO_URLと同じものを設定して, テストの挙動を確かめます。
+# デバッグ時は, TEST_SOURCE_REPO_URLを提出物として設定してテストの挙動を確かめます。
 export SUBMISSION_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
 
 # 本番では, 提出者のリポジトリをクローンする際に使用するアクセストークンを指します。
-# 先ほど指定したSUBMISSION_REPO_URLがpublicな場合は関係ないので以下のコマンドをそのまま実行してください。privateの場合は適切なアクセストークンを設定してください。
+# デバッグ時は, 先ほど指定したSUBMISSION_REPO_URLがpublicな場合は関係ないので以下のトークン（dummy）をそのまま設定してください。privateの場合は適切なアクセストークンを設定してください。
 export SUBMITTER_PAT=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
-
-export PROJECT_ID=503
 ```
 
 このリポジトリ内にて, 以下のコマンドで`start.sh`を実行してください。  
@@ -121,6 +129,6 @@ export PROJECT_ID=503
 bash start.sh
 ```
 
-### 4.プルリク 🦎
+### 5.プルリク 🦎
 
 テスト実行が無事確認できたらプルリクしてください。
