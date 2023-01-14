@@ -65,7 +65,7 @@ TEST_SOURCE_REPO_NAME=test_source
 
 source utils/clone_repo.sh
 clone_repo $SUBMISSION_REPO_URL $SUBMITTER_PAT $SUBMISSION_REPO_NAME
-clone_repo $TEST_SOURCE_REPO_URL $SHIFTBASE_PAT $TEST_SOURCE_REPO_NAME
+clone_repo $TEST_SOURCE_REPO_URL $SHIFTBASE_PAT $TEST_SOURCE_REPO_NAME # SHIFTBASE_PAT is for private repositories.
 
 source utils/run_test.sh
 run_test scripts/$SCRIPT $SUBMISSION_REPO_NAME $TEST_SOURCE_REPO_NAME
