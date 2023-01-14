@@ -55,12 +55,6 @@ case "$PROJECT_ID" in
         ;;
 esac
 
-if [ -z $TEST_SOURCE_ACCESS_TOKEN ]; then
-    # If the environment variable is not set, a dummy is set.
-    DUMMY_TOKEN=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
-    TEST_SOURCE_ACCESS_TOKEN=$DUMMY_TOKEN
-fi
-
 #****************     END SETTINGS     ****************************************************
 
 #****************     TEST     *******************************************************
@@ -71,7 +65,7 @@ TEST_SOURCE_REPO_NAME=test_source
 
 source utils/clone_repo.sh
 clone_repo $SUBMISSION_REPO_URL $SUBMITTER_PAT $SUBMISSION_REPO_NAME
-clone_repo $TEST_SOURCE_REPO_URL $TEST_SOURCE_ACCESS_TOKEN $TEST_SOURCE_REPO_NAME
+clone_repo $TEST_SOURCE_REPO_URL $SHIFTBASE_PAT $TEST_SOURCE_REPO_NAME
 
 source utils/run_test.sh
 run_test scripts/$SCRIPT $SUBMISSION_REPO_NAME $TEST_SOURCE_REPO_NAME
