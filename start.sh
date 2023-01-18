@@ -3,12 +3,11 @@
 # e: Exit if a command fails.
 # u: Treats unset or undefined variables as an error.
 # x: Prints out command arguments during execution.
-OPTIONS=eux
-set -$OPTIONS
+set -eux
 
 #****************     SETTINGS     *******************************************************
 
-# PROJECT_ID of star-pass (555~557) is randomly selected from not in use.
+# PROJECT_ID of STARPASS projects (555~557) is randomly selected from not in use.
 case "$PROJECT_ID" in
     "402" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/near-hotel-booking-dapp.git

@@ -10,5 +10,5 @@ run_test()
     export PATH_TO_TEST_SOURCE_REPO=$PWD/$TEST_SOURCE_REPO_NAME
 
     chmod 755 $SCRIPT
-    bash -$OPTIONS $SCRIPT
+    bash -eux $SCRIPT
 }
