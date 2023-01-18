@@ -8,7 +8,7 @@
 bash start.sh
 ```
 
-テストの実行には以下の環境変数が必要です。
+実行には以下の環境変数が必要です。
 
 ```
 PROJECT_ID
@@ -16,20 +16,20 @@ SUBMITTER_PAT
 SUBMISSION_REPO_URL
 ```
 
-# 📓 全体像
-
 テストは codebuild という aws のマシン上にある Linux 環境で行います。  
-以下のリンクにある図を参考にしてください。
 
-https://app.diagrams.net/#G16k64Y8UUGiJgKQyOhEQ5q4LxUckUa79r
+codebuild上での流れについては以下のリンク先の図を参照してください。  
+※ shiftbaseのgoogle workspaceに保存されているのでそちらのアカウントで閲覧・編集できると思います。  
+[codebuild テスト実行フロー](https://app.diagrams.net/#G16k64Y8UUGiJgKQyOhEQ5q4LxUckUa79r)
 
 **要点** 💁
 
-codebuild には以下 3 つのリポジトリがクローンされ, テストが行われます。
+このリポジトリが行うことは以下です。
 
-- このリポジトリ。テストの実行と管理を担当。
-- 提出物のリポジトリ。
-- テストのソースコードが入ったリポジトリ。
+1. 環境変数からテストを行うprojectを判定する。
+1. 提出物のリポジトリをクローンする。
+2. 該当テストのソースコードが入ったリポジトリをクローンする。
+3. テストを実行する。
 
 # 📓 テスト追加方法
 
@@ -38,6 +38,7 @@ codebuild には以下 3 つのリポジトリがクローンされ, テスト�
 3. `scripts`ディレクトリ内にテストスクリプトを用意
 4. docker またはローカル環境で実行確認
 5. プルリク
+6. デバッグ用の環境変数について情報を入力
 
 **例: 学習コンテンツ`AVAX-AssetTokenization`の場合** 💁
 
@@ -68,7 +69,7 @@ codebuild には以下 3 つのリポジトリがクローンされ, テスト�
 ```
 
 - `503`: project id
-- `TEST_SOURCE_REPO_URL`: オリジナルのテストコードの URL(https)。
+- `TEST_SOURCE_REPO_URL`: テストのソースコードが入ったリポジトリ URL(https)。
 - `SCRIPT`: 実行するスクリプトのファイル名。ファイル自体は次のステップで作成します。
 
 ### 3.`scripts`ディレクトリ内にテストスクリプトを用意 🦎
@@ -132,3 +133,7 @@ bash start.sh
 ### 5.プルリク 🦎
 
 テスト実行が無事確認できたらプルリクしてください。
+
+### 6.デバッグ用の環境変数について情報を入力 🦎
+
+[デバッグ用のnotionページ](https://www.notion.so/unchain-shiftbase/CodeBuild-ab5f132c81aa40ac992da60a1e4edcf4)の環境変数のデータベースに, 使用した環境変数を記録してください。
