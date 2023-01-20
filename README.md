@@ -18,9 +18,10 @@ SUBMISSION_REPO_URL
 
 テストは codebuild という aws のマシン上にある Linux 環境で行います。  
 
-codebuild上での流れについては以下のリンク先の図を参照してください。  
-※ shiftbaseのgoogle workspaceに保存されているのでそちらのアカウントで閲覧・編集できると思います。  
-[codebuild テスト実行フロー](https://app.diagrams.net/#G16k64Y8UUGiJgKQyOhEQ5q4LxUckUa79r)
+以下は概要図です。  
+このリポジトリの役目はオレンジ色の部分です。
+
+![](public/overview.drawio.svg)
 
 **要点** 💁
 
@@ -54,7 +55,7 @@ codebuild上での流れについては以下のリンク先の図を参照し�
   厳密なテストというよりは挙動確認が目的のため, コードの流用性を優先して public なリポジトリも許容する。
 
 ⚠️ リポジトリを private で用意する場合はクローンにアクセストークンが必要です。  
-現状, private リポジトリは[shiftbase-inc](https://github.com/shiftbase-inc)内に作成し, トークンは`SHIFTBASE_PAT`を使用しています。`SHIFTBASE_PAT`については[こちら](https://www.notion.so/unchain-shiftbase/Codebuild-b8e75ddfc3924deb8f2092014addb133)を参照してください。
+private リポジトリの場合は[shiftbase-inc](https://github.com/shiftbase-inc)内にリポジトリを作成し, `SHIFTBASE_PAT`にアクセス権を追加してください。`SHIFTBASE_PAT`については[デバッグ用のnotionページ](https://www.notion.so/unchain-shiftbase/CodeBuild-ab5f132c81aa40ac992da60a1e4edcf4)を参照してください。
 
 ### 2.`start.sh`内にテストケースの用意 🦎
 
