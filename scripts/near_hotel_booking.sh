@@ -8,7 +8,7 @@ cp -r $PATH_TO_TEST_SOURCE_REPO/contract/tests $PATH_TO_SUBMISSION_REPO/contract
 
 # Install dependencies.
 # The import path is from start.sh
-source utils/installRust.sh
+source utils/install_rust.sh
 install_rust
 
 # Run test.
