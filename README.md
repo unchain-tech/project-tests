@@ -122,6 +122,11 @@ export SUBMISSION_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenizatio
 # 本番では, 提出者のリポジトリをクローンする際に使用するアクセストークンを指します。
 # デバッグ時は, 先ほど指定したSUBMISSION_REPO_URLがpublicな場合は関係ないので以下のトークン（dummy）をそのまま設定してください。privateの場合は適切なアクセストークンを設定してください。
 export SUBMITTER_PAT=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
+
+# 本番では, AWSのパラメータストアという場所に保存されている, privateリポジトリのクローンに必要なトークン。
+# デバッグ時は, パラメータストアとは連携していないので, 以下のリンク先にあるtokenという欄にあるものをここで設定してください。
+export
+SHIFTBASE_PAT="このリンク先にあるものを貼り付けてください: https://www.notion.so/unchain-shiftbase/PAT-09c4fb73059f43d39fc677d2527f293c#5464e8bb2f0d4c8f99ac6983593a5db7"
 ```
 
 このリポジトリ内にて, 以下のコマンドで`start.sh`を実行してください。  
