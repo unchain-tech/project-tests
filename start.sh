@@ -49,6 +49,10 @@ case "$PROJECT_ID" in
         TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/icp_basic_dex.git
         SCRIPT=icp_basic_dex.sh
         ;;
+    "701" )
+        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/astar-socialifi-contract.git
+        SCRIPT=astar-socailfi.sh
+        ;;
     * ) echo "No match PROJECT_ID"
         exit 1
         ;;
