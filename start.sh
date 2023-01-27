@@ -9,6 +9,10 @@ set -eux
 
 # PROJECT_ID of STARPASS projects (555~557) is randomly selected from not in use.
 case "$PROJECT_ID" in
+    "401" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/near-election-dapp.git
+        SCRIPT=near-election-dapp.sh
+        ;;
     "402" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/near-hotel-booking-dapp.git
         SCRIPT=near_hotel_booking.sh
