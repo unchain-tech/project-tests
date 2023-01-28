@@ -21,6 +21,10 @@ case "$PROJECT_ID" in
         TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/NEAR-Bike-Sharing.git
         SCRIPT=near_bike_sharing.sh
         ;;
+    "404" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/near-mulpay-contract.git
+        SCRIPT=near-mulpay.sh
+        ;;
     "501" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Messenger.git
         SCRIPT=avax_messenger.sh
