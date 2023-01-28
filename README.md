@@ -125,8 +125,7 @@ export SUBMITTER_PAT="このリンク先にあるtokenを貼り付けてくだ�
 
 # 本番では, AWSのパラメータストアという場所に保存されている, privateリポジトリのクローンに必要なトークン。
 # デバッグ時は, パラメータストアとは連携していないので, 以下のリンク先にあるtokenという欄にあるものをここで設定してください。
-export
-SHIFTBASE_PAT="このリンク先にあるtokenを貼り付けてください: https://www.notion.so/unchain-shiftbase/PAT-09c4fb73059f43d39fc677d2527f293c#5464e8bb2f0d4c8f99ac6983593a5db7"
+export SHIFTBASE_PAT="このリンク先にあるtokenを貼り付けてください: https://www.notion.so/unchain-shiftbase/PAT-09c4fb73059f43d39fc677d2527f293c#5464e8bb2f0d4c8f99ac6983593a5db7"
 ```
 
 このリポジトリ内にて, 以下のコマンドで`start.sh`を実行してください。  
