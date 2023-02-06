@@ -10,35 +10,35 @@ set -eux
 # PROJECT_ID of STARPASS projects (555~557) is randomly selected from not in use.
 case "$PROJECT_ID" in
     "401" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/near-election-dapp.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-election-dapp.git
         SCRIPT=near-election-dapp.sh
         ;;
     "402" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/near-hotel-booking-dapp.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-hotel-booking-dapp.git
         SCRIPT=near_hotel_booking.sh
         ;;
     "403" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/NEAR-Bike-Sharing.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/NEAR-Bike-Sharing.git
         SCRIPT=near_bike_sharing.sh
         ;;
     "404" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/near-mulpay-contract.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-mulpay-contract.git
         SCRIPT=near-mulpay.sh
         ;;
     "501" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Messenger.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Messenger.git
         SCRIPT=avax_messenger.sh
         ;;
     "502" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Amm.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Amm.git
         SCRIPT=avax_amm.sh
         ;;
     "503" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Asset-Tokenization.git
         SCRIPT=avax_asset_tokenization.sh
         ;;
     "504" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Subnet.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Subnet.git
         SCRIPT=avax_subnet.sh
         ;;
     "555" )
@@ -54,7 +54,7 @@ case "$PROJECT_ID" in
         SCRIPT=starpass_med.sh
         ;;
     "602" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/icp_basic_dex.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/icp_basic_dex.git
         SCRIPT=icp_basic_dex.sh
         ;;
     "701" )

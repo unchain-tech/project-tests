@@ -16,9 +16,9 @@ SUBMITTER_PAT
 SUBMISSION_REPO_URL
 ```
 
-テストは codebuild という aws のマシン上にある Linux 環境で行います。  
+テストは codebuild という aws のマシン上にある Linux 環境で行います。
 
-以下は概要図です。  
+以下は概要図です。
 このリポジトリの役目はオレンジ色の部分です。
 
 ![](public/overview.drawio.svg)
@@ -27,10 +27,10 @@ SUBMISSION_REPO_URL
 
 このリポジトリが行うことは以下です。
 
-1. 環境変数からテストを行うprojectを判定する。
+1. 環境変数からテストを行う project を判定する。
 1. 提出物のリポジトリをクローンする。
-2. 該当テストのソースコードが入ったリポジトリをクローンする。
-3. テストを実行する。
+1. 該当テストのソースコードが入ったリポジトリをクローンする。
+1. テストを実行する。
 
 # 📓 テスト追加方法
 
@@ -47,24 +47,24 @@ SUBMISSION_REPO_URL
 
 現状こちらのリポジトリに関しては, 以下のような考えです。
 
-- STARPASS のテストの場合:  
+- STARPASS のテストの場合:
   提出者の実力を検証することが目的のため, 不正を防止するためにテスト内容は private なリポジトリで用意。
 
-- 学習コンテンツのテストの場合:  
-  学習コンテンツの完成形リポジトリを使う(この例だと[こちら](https://github.com/unchain-dev/AVAX-Asset-Tokenization.git))。  
+- 学習コンテンツのテストの場合:
+  学習コンテンツの完成形リポジトリを使う(この例だと[こちら](https://github.com/unchain-tech/AVAX-Asset-Tokenization.git))。
   厳密なテストというよりは挙動確認が目的のため, コードの流用性を優先して public なリポジトリも許容する。
 
-⚠️ リポジトリを private で用意する場合はクローンにアクセストークンが必要です。  
-private リポジトリの場合は[shiftbase-inc](https://github.com/shiftbase-inc)内にリポジトリを作成し, `SHIFTBASE_PAT`にアクセス権を追加してください。`SHIFTBASE_PAT`については[デバッグ用のnotionページ](https://www.notion.so/unchain-shiftbase/CodeBuild-ab5f132c81aa40ac992da60a1e4edcf4)を参照してください。
+⚠️ リポジトリを private で用意する場合はクローンにアクセストークンが必要です。
+private リポジトリの場合は[shiftbase-inc](https://github.com/shiftbase-inc)内にリポジトリを作成し, `SHIFTBASE_PAT`にアクセス権を追加してください。`SHIFTBASE_PAT`については[デバッグ用の notion ページ](https://www.notion.so/unchain-shiftbase/CodeBuild-ab5f132c81aa40ac992da60a1e4edcf4)を参照してください。
 
 ### 2.`start.sh`内にテストケースの用意 🦎
 
-`start.sh`内に以下のコードと同様のテストケースが羅列されている箇所があります。  
+`start.sh`内に以下のコードと同様のテストケースが羅列されている箇所があります。
 そこに新しいテストケースを追加します。
 
 ```
     "503" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Asset-Tokenization.git
         SCRIPT=avax_asset_tokenization.sh
         ;;
 ```
@@ -79,15 +79,15 @@ private リポジトリの場合は[shiftbase-inc](https://github.com/shiftbase-
 
 スクリプト内に何を実行するのかを記述します。
 
-このスクリプト実行時には既に 2 つのリポジトリがクローンされていて,  
+このスクリプト実行時には既に 2 つのリポジトリがクローンされていて,
 スクリプト内では以下の環境変数によってそれぞれのリポジトリにアクセスできるので利用してください。
 
 - `PATH_TO_SUBMISSION_REPO`: 提出されたレポジトリへのパス
 - `PATH_TO_TEST_SOURCE_REPO`: オリジナルのテストコードが入ったリポジトリへのパス
 
-⚠️ テスト実行に必要な依存ファイルのインストールに注意してください。  
-[こちら](https://github.com/aws/aws-codebuild-docker-images/blob/master/ubuntu/standard/6.0/Dockerfile)にインストールが記載されているコマンドは実行環境に既にインストールされ, 使用できるはずです。  
-例えば`npm`で検索するとインストールしている箇所があるので, `npm`は使用できます。  
+⚠️ テスト実行に必要な依存ファイルのインストールに注意してください。
+[こちら](https://github.com/aws/aws-codebuild-docker-images/blob/master/ubuntu/standard/6.0/Dockerfile)にインストールが記載されているコマンドは実行環境に既にインストールされ, 使用できるはずです。
+例えば`npm`で検索するとインストールしている箇所があるので, `npm`は使用できます。
 `rust`はないので, `rust`はスクリプト内でインストールする必要があります。
 
 > codebuild の実行環境は以下の手順で割り出しました。
@@ -117,7 +117,7 @@ export PROJECT_ID=503
 
 # 本番では, 提出されたリポジトリのURLを指します。
 # デバッグ時は, TEST_SOURCE_REPO_URLを提出物として設定してテストの挙動を確かめます。
-export SUBMISSION_REPO_URL=https://github.com/unchain-dev/AVAX-Asset-Tokenization.git
+export SUBMISSION_REPO_URL=https://github.com/unchain-tech/AVAX-Asset-Tokenization.git
 
 # 本番では, 提出者のリポジトリをクローンする際に使用するアクセストークンを指します。
 # デバッグ時は, 先ほど指定したSUBMISSION_REPO_URLがpublicな場合は関係ないので以下のトークン（dummy）をそのまま設定してください。privateの場合は適切なアクセストークンを設定してください。
@@ -128,7 +128,7 @@ export SUBMITTER_PAT="このリンク先にあるtokenを貼り付けてくだ�
 export SHIFTBASE_PAT="このリンク先にあるtokenを貼り付けてください: https://www.notion.so/unchain-shiftbase/PAT-09c4fb73059f43d39fc677d2527f293c#5464e8bb2f0d4c8f99ac6983593a5db7"
 ```
 
-このリポジトリ内にて, 以下のコマンドで`start.sh`を実行してください。  
+このリポジトリ内にて, 以下のコマンドで`start.sh`を実行してください。
 ⚠️ コマンド実行によりディレクトリ内が編集される可能性があります。 変更をコミットしていない場合は, ディレクトリごとコピーしてそちらで実行するなど対処してください。
 
 ```
@@ -141,4 +141,4 @@ bash start.sh
 
 ### 6.デバッグ用の環境変数について情報を入力 🦎
 
-[デバッグ用のnotionページ](https://www.notion.so/unchain-shiftbase/CodeBuild-ab5f132c81aa40ac992da60a1e4edcf4)の環境変数のデータベースに, 使用した環境変数を記録してください。
+[デバッグ用の notion ページ](https://www.notion.so/unchain-shiftbase/CodeBuild-ab5f132c81aa40ac992da60a1e4edcf4)の環境変数のデータベースに, 使用した環境変数を記録してください。
