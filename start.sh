@@ -13,6 +13,10 @@ case "$PROJECT_ID" in
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-election-dapp.git
         SCRIPT=near-election-dapp.sh
         ;;
+    "105" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Ganache-Yield-Farm.git
+        SCRIPT=ganache-yield-farm.sh
+        ;;
     "402" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-hotel-booking-dapp.git
         SCRIPT=near_hotel_booking.sh
