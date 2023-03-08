@@ -18,6 +18,8 @@ expect -c "
  expect truffle(develop)>
  send \".exit\n\"
  interact
-"
+"> yield-farm-test.txt
+
+grep -n '5 passing' yield-farm-test.txt
 
 
