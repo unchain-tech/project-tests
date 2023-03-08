@@ -9,8 +9,12 @@ set -eux
 
 # PROJECT_ID of STARPASS projects (555~557) is randomly selected from not in use.
 case "$PROJECT_ID" in
+    "101" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-dApp
+        SCRIPT=eth-dapp.sh
+        ;;
     "105" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Ganache-Yield-Farm.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-Yield-Farm.git
         SCRIPT=ganache-yield-farm.sh
         ;;
     "401" )
