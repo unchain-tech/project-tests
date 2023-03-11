@@ -18,8 +18,8 @@ case "$PROJECT_ID" in
         SCRIPT=near_hotel_booking.sh
         ;;
     "403" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/NEAR-Bike-Sharing.git
-        SCRIPT=near_bike_sharing.sh
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/NEAR-BikeShare.git
+        SCRIPT=near_bikeshare.sh
         ;;
     "404" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-mulpay-contract.git
