@@ -15,11 +15,11 @@ case "$PROJECT_ID" in
         ;;
     "105" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-Yield-Farm.git
-        SCRIPT=ganache-yield-farm.sh
+        SCRIPT=ganache_yield_farm.sh
         ;;
     "401" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-election-dapp.git
-        SCRIPT=near-election-dapp.sh
+        SCRIPT=near_election_dapp.sh
         ;;
     "402" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-hotel-booking-dapp.git
@@ -31,7 +31,7 @@ case "$PROJECT_ID" in
         ;;
     "404" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-mulpay-contract.git
-        SCRIPT=near-mulpay.sh
+        SCRIPT=near_mulpay.sh
         ;;
     "501" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Messenger.git
@@ -67,7 +67,7 @@ case "$PROJECT_ID" in
         ;;
     "701" )
         TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/astar-socialifi-contract.git
-        SCRIPT=astar-socailfi.sh
+        SCRIPT=astar_socailfi.sh
         ;;
     * ) echo "No match PROJECT_ID"
         exit 1
