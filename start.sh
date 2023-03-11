@@ -11,7 +11,7 @@ set -eux
 case "$PROJECT_ID" in
     "101" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-dApp
-        SCRIPT=eth-dapp.sh
+        SCRIPT=eth_dapp.sh
         ;;
     "105" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-Yield-Farm.git
