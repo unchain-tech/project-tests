@@ -13,6 +13,10 @@ case "$PROJECT_ID" in
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-dApp
         SCRIPT=eth_dapp.sh
         ;;
+    "102" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-NFT-Collection.git
+        SCRIPT=eth_nft_collection.sh
+        ;;
     "103" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-NFT-Maker.git
         SCRIPT=eth_nft_maker.sh
