@@ -25,6 +25,10 @@ case "$PROJECT_ID" in
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-Yield-Farm.git
         SCRIPT=ganache_yield_farm.sh
         ;;
+    "201" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Polygon-Generative-NFT.git
+        SCRIPT=polygon_generative_nft.sh
+        ;;
     "401" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-election-dapp.git
         SCRIPT=near_election_dapp.sh
