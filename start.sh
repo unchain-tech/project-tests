@@ -69,6 +69,10 @@ case "$PROJECT_ID" in
         TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-test-code.git
         SCRIPT=starpass_med.sh
         ;;
+    "601" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ICP-Static-Site.git
+        SCRIPT=icp_static_site.sh
+        ;;
     "602" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/icp_basic_dex.git
         SCRIPT=icp_basic_dex.sh
