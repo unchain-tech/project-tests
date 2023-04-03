@@ -16,6 +16,7 @@ case "$PROJECT_ID" in
     "102" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-NFT-Collection.git
         SCRIPT=eth_nft_collection.sh
+        IS_STARTER_PRESENT="yes"
         ;;
     "103" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-NFT-Maker.git
@@ -76,6 +77,7 @@ case "$PROJECT_ID" in
     "601" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ICP-Static-Site.git
         SCRIPT=icp_static_site.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "602" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/icp_basic_dex.git
@@ -99,8 +101,8 @@ SUBMISSION_REPO_NAME=submission
 TEST_SOURCE_REPO_NAME=test_source
 
 source utils/clone_repo.sh
-clone_repo $SUBMISSION_REPO_URL $SUBMITTER_PAT $SUBMISSION_REPO_NAME
-clone_repo $TEST_SOURCE_REPO_URL $SHIFTBASE_PAT $TEST_SOURCE_REPO_NAME # SHIFTBASE_PAT is for private repositories.
+clone_submission_repo $SUBMISSION_REPO_URL $SUBMITTER_PAT $SUBMISSION_REPO_NAME
+clone_test_source_repo $TEST_SOURCE_REPO_URL $SHIFTBASE_PAT $TEST_SOURCE_REPO_NAME $IS_STARTER_PRESENT # SHIFTBASE_PAT is for private repositories.
 
 source utils/run_test.sh
 run_test scripts/$SCRIPT $SUBMISSION_REPO_NAME $TEST_SOURCE_REPO_NAME
