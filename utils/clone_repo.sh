@@ -1,6 +1,6 @@
 #!/bin/bash
 
-clone_repo()
+clone_submission_repo()
 {
     URL=$1
     ACCESS_TOKEN=$2
@@ -10,4 +10,23 @@ clone_repo()
     DOMAIN=${URL##$SCHEME}
     USER=x-access-token
     git clone $SCHEME$USER:$ACCESS_TOKEN@$DOMAIN $REPO_NAME
+}
+
+clone_test_source_repo()
+{
+    URL=$1
+    ACCESS_TOKEN=$2
+    REPO_NAME=$3
+    IS_STARTER_PRESENT=$4
+
+    SCHEME=https://
+    DOMAIN=${URL##$SCHEME}
+    USER=x-access-token
+    if [ "$IS_STARTER_PRESENT" = "yes" ]; then
+      echo "Starter project is present."
+      git clone -b complete $SCHEME$USER:$ACCESS_TOKEN@$DOMAIN $REPO_NAME
+    else
+      echo "Starter project is not present."
+      git clone $SCHEME$USER:$ACCESS_TOKEN@$DOMAIN $REPO_NAME
+    fi
 }

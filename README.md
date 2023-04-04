@@ -66,12 +66,14 @@ private リポジトリの場合は[shiftbase-inc](https://github.com/shiftbase-
     "503" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Asset-Tokenization.git
         SCRIPT=avax_asset_tokenization.sh
+        IS_STARTER_PRESENT="no"
         ;;
 ```
 
 - `503`: project id
 - `TEST_SOURCE_REPO_URL`: テストのソースコードが入ったリポジトリ URL(https)。
 - `SCRIPT`: 実行するスクリプトのファイル名。ファイル自体は次のステップで作成します。
+- `IS_STARTER_PRESENT`: スタータープロジェクトの有無。コンテンツにスタータープロジェクトがある場合は文字列`"yes"`を、ない場合は`"no"`を設定します。
 
 ### 3.`scripts`ディレクトリ内にテストスクリプトを用意 🦎
 
