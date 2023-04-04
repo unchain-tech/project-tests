@@ -30,6 +30,11 @@ case "$PROJECT_ID" in
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Polygon-Generative-NFT.git
         SCRIPT=polygon_generative_nft.sh
         ;;
+    "202" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Polygon-ENS-Domain.git
+        SCRIPT=polygon_ens_domain.sh
+        IS_STARTER_PRESENT="yes"
+        ;;
     "401" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-election-dapp.git
         SCRIPT=near_election_dapp.sh
