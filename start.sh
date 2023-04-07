@@ -39,6 +39,11 @@ case "$PROJECT_ID" in
         SCRIPT=polygon_ens_domain.sh
         IS_STARTER_PRESENT="yes"
         ;;
+    "203" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Polygon-Mobile-dApp.git
+        SCRIPT=polygon_mobile_dapp.sh
+        IS_STARTER_PRESENT="no"
+        ;;
     "401" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-election-dapp.git
         SCRIPT=near_election_dapp.sh
