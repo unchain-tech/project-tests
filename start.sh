@@ -43,6 +43,7 @@ case "$PROJECT_ID" in
     "402" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-hotel-booking-dapp.git
         SCRIPT=near_hotel_booking.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "403" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/NEAR-BikeShare.git
