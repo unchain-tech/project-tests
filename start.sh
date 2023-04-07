@@ -12,6 +12,7 @@ case "$PROJECT_ID" in
     "101" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-dApp
         SCRIPT=eth_dapp.sh
+        IS_STARTER_PRESENT="yes"
         ;;
     "102" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-NFT-Collection.git
@@ -26,10 +27,12 @@ case "$PROJECT_ID" in
     "105" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-Yield-Farm.git
         SCRIPT=ganache_yield_farm.sh
+        IS_STARTER_PRESENT="yes"
         ;;
     "201" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Polygon-Generative-NFT.git
         SCRIPT=polygon_generative_nft.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "202" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Polygon-ENS-Domain.git
@@ -39,6 +42,7 @@ case "$PROJECT_ID" in
     "401" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-election-dapp.git
         SCRIPT=near_election_dapp.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "402" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-hotel-booking-dapp.git
@@ -51,6 +55,7 @@ case "$PROJECT_ID" in
     "404" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-mulpay-contract.git
         SCRIPT=near_mulpay.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "501" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Messenger.git
