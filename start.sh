@@ -41,8 +41,8 @@ case "$PROJECT_ID" in
         SCRIPT=near_election_dapp.sh
         ;;
     "402" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-hotel-booking-dapp.git
-        SCRIPT=near_hotel_booking.sh
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/NEAR-Hotel-Booking-dApp.git
+        SCRIPT=near_hotel_booking_dapp.sh
         IS_STARTER_PRESENT="no"
         ;;
     "403" )
