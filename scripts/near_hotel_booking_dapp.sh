@@ -22,4 +22,4 @@ cat $TEST_LIB >> $SUBMISSION_LIB
 
 # Run test.
 cd $PATH_TO_SUBMISSION_REPO/contract
-cargo test --test integration_test
+cargo test
