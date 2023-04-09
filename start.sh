@@ -93,6 +93,7 @@ case "$PROJECT_ID" in
     "602" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/icp_basic_dex.git
         SCRIPT=icp_basic_dex.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "701" )
         TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/astar-socialifi-contract.git

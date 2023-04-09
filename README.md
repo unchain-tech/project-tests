@@ -14,6 +14,7 @@ bash start.sh
 PROJECT_ID
 SUBMITTER_PAT
 SUBMISSION_REPO_URL
+IS_DEV
 ```
 
 テストは codebuild という aws のマシン上にある Linux 環境で行います。
