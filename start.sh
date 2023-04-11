@@ -24,6 +24,11 @@ case "$PROJECT_ID" in
         SCRIPT=eth_nft_maker.sh
         IS_STARTER_PRESENT="yes"
         ;;
+    "104" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-NFT-Game
+        SCRIPT=eth_nft_game.sh
+        IS_STARTER_PRESENT="yes"
+        ;;
     "105" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-Yield-Farm.git
         SCRIPT=ganache_yield_farm.sh
