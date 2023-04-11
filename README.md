@@ -130,7 +130,8 @@ export SUBMITTER_PAT="このリンク先にあるtokenを貼り付けてくだ�
 # デバッグ時は, パラメータストアとは連携していないので, 以下のリンク先にあるtokenという欄にあるものをここで設定してください。
 export SHIFTBASE_PAT="このリンク先にあるtokenを貼り付けてください: https://www.notion.so/unchain-shiftbase/PAT-09c4fb73059f43d39fc677d2527f293c#5464e8bb2f0d4c8f99ac6983593a5db7"
 
-export IS_DEV="開発用である場合は"yes""
+# 開発環境での実行である場合は"yes", 本番環境での実行である場合は"no"を代入してください。
+export IS_DEV=""yes" or "no""
 ```
 
 このリポジトリ内にて, 以下のコマンドで`start.sh`を実行してください。
