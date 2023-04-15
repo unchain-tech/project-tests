@@ -6,8 +6,8 @@ source utils/install_rust.sh
 install_rust
 
 # File name.
-SUBMISSION_LIB=$PATH_TO_SUBMISSION_REPO/lib.rs
-TEST_LIB=$PATH_TO_TEST_SOURCE_REPO/lib.rs
+SUBMISSION_LIB=$PATH_TO_SUBMISSION_REPO/packages/contract/lib.rs
+TEST_LIB=$PATH_TO_TEST_SOURCE_REPO/packages/contract/lib.rs
 
 # Clean existing test code in submission file.
 # Remove lines after "cfg(test)".
@@ -22,4 +22,4 @@ cat $TEST_LIB >> $SUBMISSION_LIB
 
 # Run test.
 cd $PATH_TO_SUBMISSION_REPO
-cargo +nightly-2022-08-15 test -- --nocapture
+yarn contract test

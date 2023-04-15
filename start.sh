@@ -107,8 +107,9 @@ case "$PROJECT_ID" in
         IS_STARTER_PRESENT="no"
         ;;
     "701" )
-        TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/astar-socialifi-contract.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ASTAR-SocialFi.git
         SCRIPT=astar_socailfi.sh
+        IS_STARTER_PRESENT="no"
         ;;
     * ) echo "No match PROJECT_ID"
         exit 1
