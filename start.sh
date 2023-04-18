@@ -73,8 +73,9 @@ case "$PROJECT_ID" in
         SCRIPT=avax_messenger.sh
         ;;
     "502" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Amm.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-AMM.git
         SCRIPT=avax_amm.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "503" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Asset-Tokenization.git
