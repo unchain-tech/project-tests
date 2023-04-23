@@ -9,5 +9,8 @@ cp -r $PATH_TO_TEST_SOURCE_REPO/packages/contract/test $PATH_TO_SUBMISSION_REPO/
 cd $PATH_TO_SUBMISSION_REPO
 yarn
 
+cd packages/contract
+touch .secret
+
 # Run test.
-bash test.sh
+truffle develop & truffle test
