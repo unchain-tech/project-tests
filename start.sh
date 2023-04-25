@@ -80,6 +80,7 @@ case "$PROJECT_ID" in
     "503" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Asset-Tokenization.git
         SCRIPT=avax_asset_tokenization.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "504" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Subnet.git
