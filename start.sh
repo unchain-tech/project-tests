@@ -84,6 +84,7 @@ case "$PROJECT_ID" in
     "504" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Subnet.git
         SCRIPT=avax_subnet.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "555" )
         TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-test-code.git
