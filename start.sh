@@ -71,6 +71,7 @@ case "$PROJECT_ID" in
     "501" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Messenger.git
         SCRIPT=avax_messenger.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "502" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-AMM.git
