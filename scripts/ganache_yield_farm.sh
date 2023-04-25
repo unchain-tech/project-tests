@@ -10,5 +10,7 @@ cp -r $PATH_TO_TEST_SOURCE_REPO/test $PATH_TO_SUBMISSION_REPO/test
 cd $PATH_TO_SUBMISSION_REPO
 yarn install
 
-bash test.sh
+cd test
+
+truffle develop & truffle test
 

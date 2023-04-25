@@ -34,6 +34,11 @@ case "$PROJECT_ID" in
         SCRIPT=ganache_yield_farm.sh
         IS_STARTER_PRESENT="yes"
         ;;
+    "106" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-DAO.git
+        SCRIPT=eth_dao.sh
+        IS_STARTER_PRESENT="no"
+        ;;
     "201" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Polygon-Generative-NFT.git
         SCRIPT=polygon_generative_nft.sh
@@ -71,6 +76,7 @@ case "$PROJECT_ID" in
     "501" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Messenger.git
         SCRIPT=avax_messenger.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "502" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-AMM.git
@@ -80,10 +86,12 @@ case "$PROJECT_ID" in
     "503" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Asset-Tokenization.git
         SCRIPT=avax_asset_tokenization.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "504" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/AVAX-Subnet.git
         SCRIPT=avax_subnet.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "555" )
         TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-test-code.git
@@ -126,7 +134,7 @@ SUBMISSION_REPO_NAME=submission
 TEST_SOURCE_REPO_NAME=test_source
 
 source utils/clone_repo.sh
-clone_submission_repo $SUBMISSION_REPO_URL $SUBMITTER_PAT $SUBMISSION_REPO_NAME $IS_DEV
+clone_submission_repo $SUBMISSION_REPO_URL $SUBMITTER_PAT $SUBMISSION_REPO_NAME ${IS_DEV:-"no"}
 clone_test_source_repo $TEST_SOURCE_REPO_URL $SHIFTBASE_PAT $TEST_SOURCE_REPO_NAME $IS_STARTER_PRESENT # SHIFTBASE_PAT is for private repositories.
 
 source utils/run_test.sh
