@@ -121,6 +121,11 @@ case "$PROJECT_ID" in
         SCRIPT=astar_socailfi.sh
         IS_STARTER_PRESENT="no"
         ;;
+    "801" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/XRPL-NFT-Maker.git
+        SCRIPT=xrpl_nft_maker.sh
+        IS_STARTER_PRESENT="yes"
+        ;;
     * ) echo "No match PROJECT_ID"
         exit 1
         ;;
