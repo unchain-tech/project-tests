@@ -55,7 +55,7 @@ case "$PROJECT_ID" in
         IS_STARTER_PRESENT="no"
         ;;
     "401" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-election-dapp.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/NEAR-Election-dApp.git
         SCRIPT=near_election_dapp.sh
         IS_STARTER_PRESENT="no"
         ;;
@@ -67,6 +67,7 @@ case "$PROJECT_ID" in
     "403" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/NEAR-BikeShare.git
         SCRIPT=near_bikeshare.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "404" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-mulpay-contract.git
