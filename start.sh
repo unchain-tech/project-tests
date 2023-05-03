@@ -42,7 +42,7 @@ case "$PROJECT_ID" in
     "201" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Polygon-Generative-NFT.git
         SCRIPT=polygon_generative_nft.sh
-        IS_STARTER_PRESENT="no"
+        IS_STARTER_PRESENT="yes"
         ;;
     "202" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Polygon-ENS-Domain.git
