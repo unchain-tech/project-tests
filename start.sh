@@ -37,7 +37,7 @@ case "$PROJECT_ID" in
     "106" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-DAO.git
         SCRIPT=eth_dao.sh
-        IS_STARTER_PRESENT="no"
+        IS_STARTER_PRESENT="yes"
         ;;
     "201" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Polygon-Generative-NFT.git
