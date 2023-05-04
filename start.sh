@@ -37,12 +37,12 @@ case "$PROJECT_ID" in
     "106" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-DAO.git
         SCRIPT=eth_dao.sh
-        IS_STARTER_PRESENT="no"
+        IS_STARTER_PRESENT="yes"
         ;;
     "201" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Polygon-Generative-NFT.git
         SCRIPT=polygon_generative_nft.sh
-        IS_STARTER_PRESENT="no"
+        IS_STARTER_PRESENT="yes"
         ;;
     "202" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Polygon-ENS-Domain.git
@@ -120,6 +120,11 @@ case "$PROJECT_ID" in
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ASTAR-SocialFi.git
         SCRIPT=astar_socailfi.sh
         IS_STARTER_PRESENT="no"
+        ;;
+    "801" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/XRPL-NFT-Maker.git
+        SCRIPT=xrpl_nft_maker.sh
+        IS_STARTER_PRESENT="yes"
         ;;
     * ) echo "No match PROJECT_ID"
         exit 1
