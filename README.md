@@ -134,13 +134,6 @@ export SHIFTBASE_PAT="このリンク先にあるtokenを貼り付けてくだ�
 export IS_DEV=""yes" or "no""
 ```
 
-eth-daoに関しては以下の3つの環境変数を定義する必要があります。
-```
-PRIVATE_KEY=<適当なウォレットのプライベートキー>
-WALLET_ADDRESS=<適当なウォレットのアドレス>
-ALCHEMY_API_URL=<sepoliaテストネット用のAlchemy API URL>
-```
-
 このリポジトリ内にて, 以下のコマンドで`start.sh`を実行してください。
 ⚠️ コマンド実行によりディレクトリ内が編集される可能性があります。 変更をコミットしていない場合は, ディレクトリごとコピーしてそちらで実行するなど対処してください。
 
