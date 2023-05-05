@@ -29,8 +29,8 @@ solana airdrop 6
 yarn build
 yarn deploy
 v=`solana address -k target/deploy/myepicproject-keypair.json`
-sed -i '' -e "3s/^.*/declare_id!(\"$v\");/" ./programs/myepicproject/src/lib.rs
-sed -i '' -e "6s/^.*/myepicproject = \"$v\"/" Anchor.toml
+sed -i -e "3s/^.*/declare_id!(\"$v\");/" ./programs/myepicproject/src/lib.rs
+sed -i -e "6s/^.*/myepicproject = \"$v\"/" Anchor.toml
 
 yarn build
 yarn deploy
