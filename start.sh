@@ -54,6 +54,11 @@ case "$PROJECT_ID" in
         SCRIPT=polygon_mobile_dapp.sh
         IS_STARTER_PRESENT="no"
         ;;
+    "304" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Solana-Wallet.git
+        SCRIPT=solana_wallet.sh
+        IS_STARTER_PRESENT="yes"
+        ;;
     "401" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/NEAR-Election-dApp.git
         SCRIPT=near_election_dapp.sh
