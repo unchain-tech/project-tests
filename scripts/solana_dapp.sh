@@ -6,6 +6,7 @@ source utils/install_rust.sh
 install_rust
 
 sh -c "$(curl -sSfL https://release.solana.com/v1.14.17/install)"
+export PATH="/root/.local/share/solana/install/active_release/bin:$PATH"
 
 # 1. プロジェクトをクローン後テストファイルを置き換える
 # Clean existing test code.
