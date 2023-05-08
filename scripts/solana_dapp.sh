@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Install dependencies.
+# The import path is from start.sh
+source utils/install_rust.sh
+install_rust
+
+sh -c "$(curl -sSfL https://release.solana.com/v1.14.17/install)"
+
 # 1. プロジェクトをクローン後テストファイルを置き換える
 # Clean existing test code.
 rm -rf $PATH_TO_SUBMISSION_REPO/packages/contract/tests
