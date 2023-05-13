@@ -8,10 +8,5 @@ cp -r $PATH_TO_TEST_SOURCE_REPO/packages/contract/test $PATH_TO_SUBMISSION_REPO/
 
 cd $PATH_TO_SUBMISSION_REPO
 yarn
-yarn global add truffle
 
-cd packages/contract
-touch .secret
-
-# Run test.
-truffle develop & truffle test
+yarn test
