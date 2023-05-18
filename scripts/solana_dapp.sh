@@ -2,15 +2,16 @@
 
 # Install dependencies.
 # The import path is from start.sh
+
+# Ubuntuの環境構築
+sudo apt-get update && sudo apt-get install -y pkg-config build-essential libudev-dev libssl-dev
+
 source utils/install_rust.sh
 install_rust
 
 # solanaをインストールする
 sh -c "$(curl -sSfL https://release.solana.com/v1.14.17/install)"
 export PATH="/root/.local/share/solana/install/active_release/bin:$PATH"
-
-# Ubuntuの環境構築
-sudo apt-get update && sudo apt-get install -y pkg-config build-essential libudev-dev
 
 # anchor-cliをインストールする
 cargo install --git https://github.com/project-serum/anchor --tag v0.26.0 anchor-cli --locked
