@@ -9,9 +9,8 @@ install_rust
 sh -c "$(curl -sSfL https://release.solana.com/v1.14.17/install)"
 export PATH="/root/.local/share/solana/install/active_release/bin:$PATH"
 
-# libssl1.0.0をインストール
-wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5.6_amd64.deb
-sudo dpkg -i *.deb
+# Ubuntuの環境構築
+sudo apt-get update && sudo apt-get install -y pkg-config build-essential libudev-dev
 
 # anchor-cliをインストールする
 cargo install --git https://github.com/project-serum/anchor --tag v0.26.0 anchor-cli --locked
