@@ -59,6 +59,11 @@ case "$PROJECT_ID" in
         SCRIPT=solana_dapp.sh
         IS_STARTER_PRESENT="yes"
         ;;
+    "303" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Solana-Online-Store.git
+        SCRIPT=solana_online_store.sh
+        IS_STARTER_PRESENT="yes"
+        ;;
     "304" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Solana-Wallet.git
         SCRIPT=solana_wallet.sh
