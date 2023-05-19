@@ -5,7 +5,7 @@
 
 # Ubuntuの環境構築
 sudo apt-get update && sudo apt-get install -y pkg-config build-essential libudev-dev libssl-dev
-echo "{$LD_LIBRARY_PATH}"
+find . -name 'libssl.so.1.1'
 
 source utils/install_rust.sh
 install_rust
