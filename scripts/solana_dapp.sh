@@ -5,7 +5,8 @@
 
 # Ubuntuの環境構築
 sudo apt-get update && sudo apt-get install -y pkg-config build-essential libudev-dev libssl-dev
-sudo ldconfig
+wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1l-1ubuntu1.2_amd64.deb
+sudo dpkg -i libssl1.1_1.1.1l-1ubuntu1.2_amd64.deb
 
 source utils/install_rust.sh
 install_rust
