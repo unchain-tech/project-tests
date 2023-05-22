@@ -18,8 +18,8 @@ export PATH="/root/.local/share/solana/install/active_release/bin:$PATH"
 # anchor-cliをインストールする
 cargo install --git https://github.com/project-serum/anchor --tag v0.26.0 anchor-cli --locked
 
-// opensslをインストール
-cargo add openssl
+# opensslをインストール
+cargo install openssl
 
 # 1. プロジェクトをクローン後テストファイルを置き換える
 # Clean existing test code.
