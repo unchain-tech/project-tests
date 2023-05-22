@@ -18,9 +18,6 @@ export PATH="/root/.local/share/solana/install/active_release/bin:$PATH"
 # anchor-cliをインストールする
 cargo install --git https://github.com/project-serum/anchor --tag v0.26.0 anchor-cli --locked
 
-# opensslをインストール
-cargo add openssl
-
 # 1. プロジェクトをクローン後テストファイルを置き換える
 # Clean existing test code.
 rm -rf $PATH_TO_SUBMISSION_REPO/packages/contract/tests
@@ -32,8 +29,14 @@ cp -r $PATH_TO_TEST_SOURCE_REPO/packages/contract/tests $PATH_TO_SUBMISSION_REPO
 cd $PATH_TO_SUBMISSION_REPO
 yarn
 
-# コントラクトのプロジェクトに移動
-cd packages/contract
+# コントラクトのlib.rsに移動
+cd packages/contract/programs/myepicproject/src
+
+# opensslをインストール
+cargo add openssl
+
+# コントラクトのトップディレクトリに移動
+cd ../../..
 
 # 2. ローカルネットワークをバックエンドで起動させる + 立ち上げまで5秒間待つ
 solana-test-validator -r --quiet & sleep 5
