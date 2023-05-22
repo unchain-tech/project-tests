@@ -5,8 +5,8 @@
 
 # Ubuntuの環境構築
 sudo apt-get update && sudo apt-get install -y pkg-config build-essential libudev-dev libssl-dev
-wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1l-1ubuntu1.2_amd64.deb
-sudo dpkg -i libssl1.1_1.1.1l-1ubuntu1.2_amd64.deb
+# wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1l-1ubuntu1.2_amd64.deb
+# sudo dpkg -i libssl1.1_1.1.1l-1ubuntu1.2_amd64.deb
 
 source utils/install_rust.sh
 install_rust
@@ -17,6 +17,9 @@ export PATH="/root/.local/share/solana/install/active_release/bin:$PATH"
 
 # anchor-cliをインストールする
 cargo install --git https://github.com/project-serum/anchor --tag v0.26.0 anchor-cli --locked
+
+// opensslをインストール
+cargo add openssl
 
 # 1. プロジェクトをクローン後テストファイルを置き換える
 # Clean existing test code.
