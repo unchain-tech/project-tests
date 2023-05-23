@@ -2,6 +2,12 @@
 
 # Install dependencies.
 # The import path is from start.sh
+
+# Ubuntuの環境構築
+sudo apt-get update && sudo apt-get install -y pkg-config build-essential libudev-dev libssl-dev
+wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+
 source utils/install_rust.sh
 install_rust
 
@@ -23,8 +29,10 @@ cp -r $PATH_TO_TEST_SOURCE_REPO/packages/contract/tests $PATH_TO_SUBMISSION_REPO
 cd $PATH_TO_SUBMISSION_REPO
 yarn
 
-# コントラクトのプロジェクトに移動
-cd packages/contract
+# コントラクトのlib.rsに移動
+cd packages/contract/programs/myepicproject/src
+
+cd ../../..
 
 # 2. ローカルネットワークをバックエンドで起動させる + 立ち上げまで5秒間待つ
 solana-test-validator -r --quiet & sleep 5
