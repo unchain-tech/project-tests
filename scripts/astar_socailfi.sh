@@ -14,11 +14,11 @@ TEST_LIB=$PATH_TO_TEST_SOURCE_REPO/packages/contract/lib.rs
 
 # Clean existing test code in submission file.
 # Remove lines after "cfg(test)".
-sed -i "" '/cfg(test)/,$d' $SUBMISSION_LIB
+sed -i '/cfg(test)/,$d' $SUBMISSION_LIB
 
 # Extract test code.
 # Remove lines before "cfg(test)".
-sed -n -i "" '/cfg(test)/,$p' $TEST_LIB
+sed -n -i '/cfg(test)/,$p' $TEST_LIB
 
 # Append test code to submission file.
 cat $TEST_LIB >> $SUBMISSION_LIB
