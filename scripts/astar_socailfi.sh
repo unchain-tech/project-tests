@@ -5,8 +5,8 @@
 source utils/install_rust.sh
 install_rust
 rustup update    
-rustup override set nightly
-rustup update nightly
+rustup override set nightly-2023-05-25
+rustup update nightly-2023-05-25
 
 # File name.
 SUBMISSION_LIB=$PATH_TO_SUBMISSION_REPO/packages/contract/lib.rs
