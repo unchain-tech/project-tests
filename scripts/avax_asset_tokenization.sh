@@ -7,5 +7,6 @@ rm -rf $PATH_TO_SUBMISSION_REPO/packages/contract/test
 cp -r $PATH_TO_TEST_SOURCE_REPO/packages/contract/test $PATH_TO_SUBMISSION_REPO/packages/contract/test
 
 # Run test.
+cd $PATH_TO_SUBMISSION_REPO
 yarn install
 yarn test
