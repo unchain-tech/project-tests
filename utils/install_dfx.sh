@@ -2,5 +2,5 @@
 
 install_dfx()
 {
-  sh -ci "$(curl -fsSL https://smartcontracts.org/install.sh)"
+  DFX_VERSION=0.12.1 sh -ci "$(curl -sSL https://internetcomputer.org/install.sh)"
 }
