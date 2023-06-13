@@ -18,7 +18,7 @@ sed -i '/cfg(test)/,$d' $SUBMISSION_LIB
 
 # Extract test code.
 # Remove lines before "cfg(test)".
-sed -n -i  '/cfg(test)/,$p' $TEST_LIB
+sed -n -i '/cfg(test)/,$p' $TEST_LIB
 
 # Append test code to submission file.
 cat $TEST_LIB >> $SUBMISSION_LIB
