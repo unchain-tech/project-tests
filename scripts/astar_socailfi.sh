@@ -4,9 +4,8 @@
 # The import path is from start.sh
 source utils/install_rust.sh
 install_rust
-rustup update    
-rustup override set nightly-2023-05-25
-rustup update nightly-2023-05-25
+rustup install 1.68.0
+rustup override set 1.68.0
 
 # File name.
 SUBMISSION_LIB=$PATH_TO_SUBMISSION_REPO/packages/contract/lib.rs
