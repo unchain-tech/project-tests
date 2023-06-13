@@ -6,6 +6,7 @@ source utils/install_rust.sh
 install_rust
 rustup install 1.68.0
 rustup override set 1.68.0
+rustup component add rust-src --toolchain 1.68.0-x86_64-unknown-linux-gnu
 
 # File name.
 SUBMISSION_LIB=$PATH_TO_SUBMISSION_REPO/packages/contract/lib.rs
@@ -17,7 +18,7 @@ sed -i '/cfg(test)/,$d' $SUBMISSION_LIB
 
 # Extract test code.
 # Remove lines before "cfg(test)".
-sed -n -i '/cfg(test)/,$p' $TEST_LIB
+sed -n -i  '/cfg(test)/,$p' $TEST_LIB
 
 # Append test code to submission file.
 cat $TEST_LIB >> $SUBMISSION_LIB
