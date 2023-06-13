@@ -6,6 +6,7 @@ source utils/install_rust.sh
 install_rust
 rustup install 1.68.0
 rustup override set 1.68.0
+rustup component add rust-src --toolchain 1.68.0-x86_64-unknown-linux-gnu
 
 # File name.
 SUBMISSION_LIB=$PATH_TO_SUBMISSION_REPO/packages/contract/lib.rs
