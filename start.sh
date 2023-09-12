@@ -136,6 +136,11 @@ case "$PROJECT_ID" in
         SCRIPT=icp_basic_dex.sh
         IS_STARTER_PRESENT="no"
         ;;
+    "603" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ICP-Encrypted-Notes.git
+        SCRIPT=icp_encrypted_notes.sh
+        IS_STARTER_PRESENT="yes"
+        ;;
     "701" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ASTAR-SocialFi.git
         SCRIPT=astar_socailfi.sh
