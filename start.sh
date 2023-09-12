@@ -10,7 +10,7 @@ set -eux
 # PROJECT_ID of STARPASS projects (555~557) is randomly selected from not in use.
 case "$PROJECT_ID" in
     "101" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-dApp
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-dApp.git
         SCRIPT=eth_dapp.sh
         IS_STARTER_PRESENT="yes"
         ;;
@@ -25,13 +25,13 @@ case "$PROJECT_ID" in
         IS_STARTER_PRESENT="yes"
         ;;
     "104" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-NFT-Game
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-NFT-Game.git
         SCRIPT=eth_nft_game.sh
         IS_STARTER_PRESENT="yes"
         ;;
     "105" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ETH-Yield-Farm.git
-        SCRIPT=ganache_yield_farm.sh
+        SCRIPT=eth_yield_farm.sh
         IS_STARTER_PRESENT="yes"
         ;;
     "106" )
@@ -90,7 +90,7 @@ case "$PROJECT_ID" in
         IS_STARTER_PRESENT="no"
         ;;
     "404" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/near-mulpay-contract.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/NEAR-MulPay.git
         SCRIPT=near_mulpay.sh
         IS_STARTER_PRESENT="no"
         ;;
@@ -132,7 +132,7 @@ case "$PROJECT_ID" in
         IS_STARTER_PRESENT="no"
         ;;
     "602" )
-        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/icp_basic_dex.git
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ICP-Basic-DEX.git
         SCRIPT=icp_basic_dex.sh
         IS_STARTER_PRESENT="no"
         ;;
