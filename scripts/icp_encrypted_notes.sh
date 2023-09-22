@@ -5,6 +5,10 @@
 source utils/install_dfx.sh
 install_dfx
 
+source utils/install_rust.sh
+install_rust
+rustup target add wasm32-unknown-unknown
+
 # Clean existing test code.
 rm -rf $PATH_TO_SUBMISSION_REPO/scripts/test.sh
 
