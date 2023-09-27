@@ -54,6 +54,11 @@ case "$PROJECT_ID" in
         SCRIPT=polygon_mobile_dapp.sh
         IS_STARTER_PRESENT="no"
         ;;
+    "204" )
+        TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Polygon-Whitelist-NFT.git
+        SCRIPT=polygon_whitelist_nft.sh
+        IS_STARTER_PRESENT="no"
+        ;;
     "301" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/Solana-dApp.git
         SCRIPT=solana_dapp.sh
