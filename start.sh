@@ -122,14 +122,17 @@ case "$PROJECT_ID" in
     "555" )
         TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-test-code.git
         SCRIPT=starpass_soc.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "556" )
         TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-test-code.git
         SCRIPT=starpass_gov.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "557" )
         TEST_SOURCE_REPO_URL=https://github.com/shiftbase-inc/STARPASS-test-code.git
         SCRIPT=starpass_med.sh
+        IS_STARTER_PRESENT="no"
         ;;
     "601" )
         TEST_SOURCE_REPO_URL=https://github.com/unchain-tech/ICP-Static-Site.git
